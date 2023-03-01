@@ -1,5 +1,5 @@
 <template>
-  <h4 class="text-center">{{ village.name }}</h4>
+  <h5 class="text-center">{{ village.name }}</h5>
   <img class="villageImage" :src="village.coverImg" alt="" srcset="">
 </template>
 

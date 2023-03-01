@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { AccountSchema } from "../models/Account";
 import { FighterSchema } from "../models/DragonBallZ/Fighter";
 import { UniverseSchema } from "../models/DragonBallZ/Universe";
+import { HoloSchema } from "../models/Holo/Holo";
 import { HeroSchema } from "../models/MyHeroAcademia/Hero";
 import { HeroTeamSchema } from "../models/MyHeroAcademia/HeroTeam";
 import { PersonalsSchema } from "../models/MyHeroAcademia/Personals";
@@ -44,6 +45,8 @@ class DbContext {
   Personals = mongoose.model("Personals", PersonalsSchema);
 
   /////////////////////////////////////////////////////////////
+
+  Holo = mongoose.model("Holo", HoloSchema);
 }
 
 export const dbContext = new DbContext();

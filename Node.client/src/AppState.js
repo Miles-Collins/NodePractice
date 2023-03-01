@@ -10,4 +10,6 @@ export const AppState = reactive({
   heros: [],
   // NARUTO
   villages: [],
+  // HOLO
+  holos: [],
 });

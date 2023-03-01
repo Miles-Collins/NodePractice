@@ -89,6 +89,18 @@ class HeroService {
     let personals = await dbContext.Personals.create(personalsBody);
     return personals;
   }
+
+  // HOLOS \\
+
+  async getHolos() {
+    let holos = await dbContext.Holo.find();
+    return holos;
+  }
+
+  async createHolo(holoBody) {
+    let holo = await dbContext.Holo.create(holoBody);
+    return holo;
+  }
 }
 
 export const heroService = new HeroService();

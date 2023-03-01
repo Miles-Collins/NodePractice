@@ -16,6 +16,12 @@ class HeroTeamsService {
     logger.log("[FILTERED HEROES]", heroes);
     AppState.heros = heroes;
   }
+
+  async getRandomHolo() {
+    const res = await api.get("api/mha/heros/holo");
+    logger.log("HOLOS", res.data);
+    AppState.holos = res.data;
+  }
 }
 
 export const heroTeamsService = new HeroTeamsService();

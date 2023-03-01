@@ -6,9 +6,11 @@ export class MHAHerosController extends BaseController {
   constructor() {
     super("api/mha/heros");
     this.router
+      .get("/holo", this.getHolos)
       .get("", this.getAll)
       .get("/:id", this.getOne)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .post("/holo", this.createHolo)
       .post("", this.create)
       .put("/:id", this.edit)
       .delete("", this.delete)
@@ -109,6 +111,26 @@ export class MHAHerosController extends BaseController {
       personalsBody.creatorId = req.userInfo.id;
       let personals = await heroService.createPersonals(personalsBody);
       return res.send(personals);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // HOLO \\
+  async getHolos(req, res, next) {
+    try {
+      let holos = await heroService.getHolos();
+      return res.send(holos);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async createHolo(req, res, next) {
+    try {
+      let holoBody = req.body;
+      let holo = await heroService.createHolo(holoBody);
+      return res.send(holo);
     } catch (error) {
       next(error);
     }
