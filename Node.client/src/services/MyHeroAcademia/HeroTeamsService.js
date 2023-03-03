@@ -9,6 +9,12 @@ class HeroTeamsService {
     AppState.heroTeams = res.data;
   }
 
+  async getTeamById(teamId) {
+    const res = await api.get(`api/mha/heroTeams/${teamId}`);
+    logger.log("[GETTING ACTIVE TEAM]", res.data);
+    AppState.activeTeam = res.data;
+  }
+
   async getTeamHeroes(teamId) {
     const res = await api.get(`api/mha/heroTeams/${teamId}/teamMember`);
     logger.log(("[GETTING HEROES", res.data));
@@ -16,6 +22,16 @@ class HeroTeamsService {
     logger.log("[FILTERED HEROES]", heroes);
     AppState.heros = heroes;
   }
+
+  // HEROS SERVICE
+
+  async getHeroById(heroId) {
+    const res = await api.get(`api/mha/heros/${heroId}`);
+    logger.log("[GETTING ACTIVE HERO]", res.data);
+    AppState.activeHero = res.data;
+  }
+
+  // HOLO'S SERVICE
 
   async getRandomHolo() {
     const res = await api.get("api/mha/heros/holo");

@@ -10,6 +10,7 @@
 
 <script>
 import { onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
 import { AppState } from "../AppState";
 import TeamCard from "../components/MyHeroAcademia/TeamCard.vue";
 import { heroTeamsService } from "../services/MyHeroAcademia/HeroTeamsService"
@@ -17,9 +18,11 @@ import Pop from "../utils/Pop";
 
 export default {
   setup() {
+
     onMounted(() => {
       getHeroTeams();
     });
+
     async function getHeroTeams() {
       try {
         await heroTeamsService.getAll();

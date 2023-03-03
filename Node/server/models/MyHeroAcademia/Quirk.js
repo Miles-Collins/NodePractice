@@ -2,7 +2,7 @@ import { Schema } from "mongoose";
 
 export const QuirkSchema = new Schema(
   {
-    name: { type: String, required: true, minlength: 5, maxlength: 500 },
+    name: { type: String, required: true, minlength: 2, maxlength: 500 },
     description: {
       type: String,
       required: true,
@@ -17,6 +17,7 @@ export const QuirkSchema = new Schema(
     quirkRange: {
       type: String,
       enum: [
+        "Contact",
         "Close",
         "Short",
         "Medium",
@@ -24,6 +25,7 @@ export const QuirkSchema = new Schema(
         "Long",
         "Very Long",
         "Global",
+        "Multi-Use",
       ],
     },
     heroId: { type: Schema.Types.ObjectId, required: true },

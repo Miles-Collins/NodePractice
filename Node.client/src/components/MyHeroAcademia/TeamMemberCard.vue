@@ -1,5 +1,6 @@
 <template>
-  <div v-if="holo" class=" containerBorder" v-bind:style="{ backgroundImage: `url(${holo?.url})` }">
+  <div @click="getHeroById(hero.id)" v-if="holo" class=" containerBorder"
+    v-bind:style="{ backgroundImage: `url(${holo?.url})` }">
     <div class=" heroNameContainer text-center">
       <h6>{{ hero.heroName }}</h6>
     </div>
@@ -52,7 +53,17 @@ export default {
     })
     return {
       holos: computed(() => AppState.holos),
-      holo: computed(() => AppState.holos[Math.round(Math.random() * AppState.holos.length - .5)])
+      holo: computed(() => AppState.holos[Math.round(Math.random() * AppState.holos.length - .5)]),
+
+      async getHeroById(heroId) {
+        try {
+          await heroTeamsService.getHeroById(heroId)
+        } catch (error) {
+          console.error(error)
+          // @ts-ignore
+          Pop.error(('[ERROR]'), error.message)
+        }
+      }
 
     }
   }

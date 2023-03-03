@@ -35,6 +35,7 @@ class HeroService {
       .populate("creator")
       .populate("quirk")
       .populate("team")
+      .populate("status")
       .populate("personals");
     if (hero == null) {
       throw new BadRequest("That Hero does not exist.");

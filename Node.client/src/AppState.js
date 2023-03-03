@@ -7,7 +7,9 @@ export const AppState = reactive({
   account: {},
   // MY HERO ACADEMIA
   heroTeams: [],
+  activeTeam: null,
   heros: [],
+  activeHero: null,
   // NARUTO
   villages: [],
   // HOLO

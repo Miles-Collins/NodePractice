@@ -3,6 +3,7 @@ import { Schema } from "mongoose";
 export const HeroTeamSchema = new Schema(
   {
     name: { type: String, required: true, minlength: 3, maxlength: 50 },
+    class: { type: String },
     description: {
       type: String,
       required: true,
