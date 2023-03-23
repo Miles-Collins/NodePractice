@@ -11,6 +11,7 @@ export const HeroSchema = new Schema(
       default: "Undecided",
     },
     image: { type: String, required: true, minlength: 5, maxlength: 1555 },
+    coverImage: { type: String, required: true, maxlength: 1555 },
     bio: { type: String, required: true, minlength: 10, maxlength: 5000 },
     teamId: { type: Schema.Types.ObjectId, required: true, ref: "HeroTeam" },
     quirkId: { type: Schema.Types.ObjectId, ref: "Quirk" },

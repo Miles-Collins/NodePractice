@@ -6,8 +6,8 @@
     </div>
     <div class="heroImage" v-bind:style="{ backgroundImage: `url(${hero.image})` }">
     </div>
-    <div class="descriptionContainer">
-      <div v-bind="hero.quirk" class="">
+    <div class="descriptionContainer d-flex align-items-center">
+      <div my-auto v-bind="hero.quirk" class="">
         <p>
           Quirk: {{ hero.quirk?.name }}
         </p>
@@ -94,6 +94,7 @@ export default {
   background-position: center;
   width: 98%;
   height: 90%;
+  border-radius: 5%;
 }
 
 .descriptionContainer {
@@ -102,6 +103,8 @@ export default {
   text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
   color: white;
   border: black 1px solid;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
 }
 
 p {

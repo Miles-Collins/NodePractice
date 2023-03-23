@@ -8,12 +8,12 @@
           </div>
           <div class="row d-flex justify-content-center">
             <div class="col-12 leftBarSmush"></div>
-            <div class="col-11 col-md-7 leftBarBox d-flex justify-content-center">
+            <div class="col-11 col-md-8 col-lg-8 col-xl-11 leftBarBox d-flex justify-content-center">
               <div class="row ">
                 <h1 v-if="team?.class" class="text-center mt-2 px-3">Class: {{ team?.class }}</h1>
-                <h1 class="text-center mt-2 px-3" v-else>Description:</h1>
+                <h1 class="text-center descriptionMH px-3" v-else>Description:</h1>
                 <p class="text-center">{{ team?.description }}</p>
-                <p @click="pushToRecipe(team?.id)" class="text-center getFont "><strong class="getTheRecipe">CLICK TO
+                <p @click="pushToRecipe(team?.id)" class="text-center getFont "><strong class="getAdditionalInfo">CLICK TO
                     LEARN MORE
                     ></strong>
                 </p>
@@ -22,22 +22,24 @@
           </div>
         </div>
       </div>
-      <div v-if="hero" class="col-12 col-md-7 leftBarHero" :style="{ background: `url(${hero?.image})` }">
+      <div v-if="hero" class="col-12 col-md-7 leftBarHero" :style="{ background: `url(${hero?.coverImage})` }">
         <div class="row ">
           <div class="col-12 headerBg">
             <h1 class="text-center mt-2 px-3">{{ hero?.heroName }}</h1>
           </div>
           <div class="row d-flex justify-content-center">
             <div class="col-12 leftBarSmush"></div>
-            <div class="col-11 col-md-7 leftBarBox d-flex justify-content-center">
+            <div class="ccol-11 col-md-8 col-lg-8 col-xl-11  leftBarBox d-flex justify-content-center">
               <div class="row ">
                 <h1 v-if="hero.class" class="text-center mt-2 px-3">Class: {{ hero?.name }}</h1>
                 <h1 class="text-center mt-2 px-3" v-else>Description:</h1>
-                <p class="text-center">{{ hero?.bio }}</p>
-                <p @click="pushToRecipe(team?.id)" class="text-center getFont "><strong class="getTheRecipe">CLICK TO
-                    LEARN MORE
-                    ></strong>
-                </p>
+                <p class="text-wrap">{{ hero?.bio }}</p>
+                <router-link :to="{ name: 'MHAHero', params: { heroId: hero.id } }">
+                  <p class="text-center getFont "><strong class="getAdditionalInfo">CLICK TO
+                      LEARN MORE
+                      ></strong>
+                  </p>
+                </router-link>
               </div>
             </div>
           </div>
@@ -110,6 +112,15 @@ export default {
 </script>
 
 <style scoped>
+.descriptionMH {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+h1 {
+  margin: 0px;
+}
+
 .headerBg {
   border-top: 5px solid rgb(244, 199, 106);
   border-bottom: 5px solid rgb(244, 199, 106);
@@ -123,6 +134,7 @@ export default {
   background-color: black;
   border: 4px solid black;
   padding: 0px;
+  border-radius: 5%;
 }
 
 .heroCardBorderContainer {
@@ -134,6 +146,7 @@ export default {
 
 .leftBar {
   height: 90vh;
+  font-family: Futura Display BQ;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -142,7 +155,8 @@ export default {
 
 .leftBarHero {
   height: 90vh;
-  background-size: contain !important;
+  font-family: Futura Display BQ;
+  background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-color: rgba(234, 230, 230, 0.857) !important;
@@ -160,7 +174,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.857);
   display: flex;
   justify-content: center;
-  font-size: .55rem;
+  font-size: .7rem;
 }
 
 .getFont {
@@ -180,5 +194,13 @@ export default {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.getAdditionalInfo {
+  cursor: pointer;
+}
+
+.getAdditionalInfo:hover {
+  text-decoration: underline;
 }
 </style>

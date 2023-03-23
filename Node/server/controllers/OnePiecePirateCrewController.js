@@ -4,7 +4,7 @@ import BaseController from "../utils/BaseController";
 
 export class OnePiecePirateCrewController extends BaseController {
   constructor() {
-    super("/api/onepiece/pirateCrew");
+    super("/api/onePiece/pirateCrew");
     this.router
       .get("", this.get)
       .get("/:id", this.getOne)

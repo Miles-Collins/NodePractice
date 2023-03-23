@@ -12,7 +12,11 @@ import { TeamMemberSchema } from "../models/MyHeroAcademia/TeamMember";
 import { MissingNinSchema } from "../models/Naruto/MissingNin";
 import { NinjaSchema } from "../models/Naruto/Ninja";
 import { VillageSchema } from "../models/Naruto/Village";
+import { CrewMemberSchema } from "../models/OnePiece/CrewMember";
+import { DevilFruitSchema } from "../models/OnePiece/DevilFruit";
+import { PirateSchema } from "../models/OnePiece/Pirate";
 import { PirateCrewSchema } from "../models/OnePiece/PirateCrew";
+import { StatisticsSchema } from "../models/OnePiece/Statistics";
 
 class DbContext {
   Account = mongoose.model("Account", AccountSchema);
@@ -33,6 +37,10 @@ class DbContext {
   //////////////// SECTION
   /////////////// One Piece \\\\\\\\\\\\\\\\\\\\\\
   PirateCrew = mongoose.model("PirateCrew", PirateCrewSchema);
+  Pirate = mongoose.model("Pirate", PirateSchema);
+  CrewMember = mongoose.model("CrewMember", CrewMemberSchema);
+  Statistics = mongoose.model("Statistics", StatisticsSchema);
+  DevilFruit = mongoose.model("DevilFruit", DevilFruitSchema);
 
   /////////////////// SECTION
   /////////////// MY HERO ACADEMIA \\\\\\\\\\\\\\\\\\\\\\
